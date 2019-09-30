@@ -1,3 +1,4 @@
+#_____________________________________Node.js_____________________________________
 # Logs
 logs
 *.log
@@ -96,3 +97,11 @@ public
 
 # DynamoDB Local files
 .dynamodb/
+
+#___________________________________Visual Studio Code___________________________________
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
