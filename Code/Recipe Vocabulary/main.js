@@ -7,10 +7,13 @@ fs.readFile(file_name, (err, data) => {
 
     // Not empty, creating new associative array of file info
     if (temp != '') {
-        var lines = temp.split('\r\n')
+        var lines = temp.split('\n')
         for (var i = 0; i < lines.length; i++) {
             var split_line = lines[i].split(" ");
-            vocab_arr[split_line[0]] = split_line[1];  
+            // Catch a empty line
+            if (split_line != '') {
+                vocab_arr[split_line[0]] = split_line[1];
+            }  
         }
     }
 
@@ -19,28 +22,33 @@ fs.readFile(file_name, (err, data) => {
     .prompt([
         {
         type: "input",
-        message: "Enter paragraph: ",
+        message: "Enter or 'clear': ",
         name: "paragraph"
         }
     ])
     .then(function(inquirerResponse) {
         var paragraph  = inquirerResponse.paragraph;
-        var paragraph_arr = paragraph.trim().toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").split(" ");
-        for (var i = 0; i < paragraph_arr.length; i++) {
-            // Check if the word exist in the set
-            if (vocab_arr[paragraph_arr[i]] == null) { // doesnt exist
-                vocab_arr[paragraph_arr[i]] = 1;
-            } else { // exist
-                vocab_arr[paragraph_arr[i]]++;
+
+        if (paragraph == "clear") {
+            fs.writeFile(file_name, '', function(){console.log('done')})
+        } else {
+            var paragraph_arr = paragraph.trim().toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").split(" ");
+            for (var i = 0; i < paragraph_arr.length; i++) {
+                // Check if the word exist in the set
+                if (vocab_arr[paragraph_arr[i]] == null) { // doesnt exist
+                    vocab_arr[paragraph_arr[i]] = 1;
+                } else { // exist
+                    vocab_arr[paragraph_arr[i]]++;
+                }
             }
-        }
-        fs.writeFile(file_name, '', function(){console.log('done')})
-        for (key in vocab_arr) {
-            var value = vocab_arr[key];
-            var temp = key + " " + value + "\n";
-            fs.appendFile(file_name, temp, function (err) {
-                if (err) throw err;
-              });
+            fs.writeFile(file_name, '', function(){console.log('done')})
+            for (key in vocab_arr) {
+                var value = vocab_arr[key];
+                var temp = key + " " + value + "\n";
+                fs.appendFile(file_name, temp, function (err) {
+                    if (err) throw err;
+                  });
+            }
         }
     });
 });
