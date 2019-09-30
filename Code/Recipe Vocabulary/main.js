@@ -1,5 +1,6 @@
+var file_name = 'vocab_list.txt'
 const fs = require('fs')  
-fs.readFile('vocab_list.txt', (err, data) => { 
+fs.readFile(file_name, (err, data) => { 
     if (err) throw err; 
     var temp = data.toString(); 
     var vocab_arr = {};
@@ -33,18 +34,13 @@ fs.readFile('vocab_list.txt', (err, data) => {
                 vocab_arr[paragraph_arr[i]]++;
             }
         }
-        
-        // Write data in 'Output.txt' . 
-        fs.writeFile('Output.txt', vocab_arr, (err) => { 
-            
-            // In case of a error throw err. 
-            if (err) throw err; 
-        }) 
-        // for ( i = 0; i < vocab_arr; i++) {
-
-        // }
-
+        fs.writeFile(file_name, '', function(){console.log('done')})
+        for (key in vocab_arr) {
+            var value = vocab_arr[key];
+            var temp = key + " " + value + "\n";
+            fs.appendFile(file_name, temp, function (err) {
+                if (err) throw err;
+              });
+        }
     });
-
-
 });
