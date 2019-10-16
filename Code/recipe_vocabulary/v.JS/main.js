@@ -4,7 +4,10 @@ fs.readFile(file_name, (err, data) => {
     if (err) throw err; 
     var temp = data.toString(); 
     var vocab_arr = {};
-    
+    const omit_words = new Set(['a','an','the','i','you','he','she','it','they','me','you','him',
+        'her','it','my','mine','your','yours','his','her','hers','its','who','whom','whose','what',
+        'which','another','each','everything','nobody','either','someone','who','whom','whose',
+        'that','which','myself','yourself','himself','herself','itself','this','that']);
 
     // Not empty, creating new associative array of file info
     if (temp != '') {
@@ -34,25 +37,25 @@ fs.readFile(file_name, (err, data) => {
             fs.writeFile(file_name, '', function(){console.log('done')});
 
         } else if (paragraph == "sort") { // -------------------------- SORT --------------------------
-            var tuples = [];
-            for (var key in vocab_arr) tuples.push([key, vocab_arr[key]]);
-            tuples.sort(function(a, b) {
-                a = a[1];
-                b = b[1];
-                return a < b ? -1 : (a > b ? 1 : 0);
-            });
+            // var tuples = [];
+            // for (var key in vocab_arr) tuples.push([key, vocab_arr[key]]);
+            // tuples.sort(function(a, b) {
+            //     a = a[1];
+            //     b = b[1];
+            //     return a < b ? -1 : (a > b ? 1 : 0);
+            // });
 
-            fs.writeFile(file_name, '', function(){console.log('')});
-            for (var i = 0; i < tuples.length; i++) {
-                var key = tuples[i][0];
-                var value = tuples[i][1];
+            // fs.writeFile(file_name, '', function(){console.log('')});
+            // for (var i = 0; i < tuples.length; i++) {
+            //     var key = tuples[i][0];
+            //     var value = tuples[i][1];
 
-                var temp = key + " " + value + "\n";
-                fs.appendFile(file_name, temp, function (err) {
-                    if (err) throw err;
-                });
-                // do something with key and value
-            }
+            //     var temp = key + " " + value + "\n";
+            //     fs.appendFile(file_name, temp, function (err) {
+            //         if (err) throw err;
+            //     });
+            //     // do something with key and value
+            // }
         } else { // -------------------------- INSERT PARAGRAPH --------------------------
             var paragraph_arr = paragraph.trim().toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").split(" ");
             for (var i = 0; i < paragraph_arr.length; i++) {
@@ -76,16 +79,6 @@ fs.readFile(file_name, (err, data) => {
                 var key = tuples[i][0];
                 var value = tuples[i][1];
 
-                var temp = key + " " + value + "\n";
-                fs.appendFile(file_name, temp, function (err) {
-                    if (err) throw err;
-                });
-                // do something with key and value
-            }
-            
-            fs.writeFile(file_name, '', function(){console.log('')});
-            for (key in vocab_arr) {
-                var value = vocab_arr[key];
                 var temp = key + " " + value + "\n";
                 fs.appendFile(file_name, temp, function (err) {
                     if (err) throw err;
