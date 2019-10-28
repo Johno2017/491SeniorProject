@@ -34,8 +34,8 @@ const switchToLogin = () => {
 }
 
 const signUp = () => {
-    var userEmail = document.getElementById("email-field").value;
-    var userPass = document.getElementById("password-field").value;
+    var userEmail = document.getElementById("email-field-signup").value;
+    var userPass = document.getElementById("password-field-signup").value;
 
     window.alert(`User id and pass accepted`);
 
@@ -50,21 +50,24 @@ const signUp = () => {
 }
 
 const login = () => {
-    var userEmail = document.getElementById("email-field").value;
-    var userPass = document.getElementById("password-field").value;
+    var userEmail = document.getElementById("email-field-login").value;
+    var userPass = document.getElementById("password-field-login").value;
+    console.log(userEmail);
 
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    var user = firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
+
+        window.alert(`Error has occured: ${userEmail}`);
         // ...
       });
-
 }
 
 const signOut = () => {
     firebase.auth().signOut().then(function() {
     window.alert(`Sign out successful`);
+
 
     document.getElementById("user-div").style.display = "none";
     document.getElementById("login-div").style.display = "block";
