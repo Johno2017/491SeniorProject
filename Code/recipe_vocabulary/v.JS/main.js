@@ -26,7 +26,7 @@ fs.readFile(file_name, (err, data) => {
     .prompt([
         {
         type: "input",
-        message: "Enter or ('clear', 'sort'): ",
+        message: "Enter or ('clear'): ",
         name: "paragraph"
         }
     ])
@@ -66,6 +66,7 @@ fs.readFile(file_name, (err, data) => {
                     vocab_arr[paragraph_arr[i]]++;
                 }
             }
+            // Sorting
             var tuples = [];
             for (var key in vocab_arr) tuples.push([key, vocab_arr[key]]);
             tuples.sort(function(a, b) {
