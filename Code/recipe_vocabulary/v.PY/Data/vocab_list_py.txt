@@ -1,0 +1,5 @@
+person 2
+bake 4
+pizza 6
+cookie 4
+pasta 3
