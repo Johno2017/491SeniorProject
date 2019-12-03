@@ -9,9 +9,9 @@ class Login extends React.Component {
         const password = document.querySelector("#password").value;
 
         fire.auth().signInWithEmailAndPassword(email,password).then((u)=> {
-            console.log("Successfully logged in");
+            window.alert("Successfully logged in");
         }).catch((err)=> {
-            console.log("Error: " + err.toString());
+            window.alert("Error: " + err.toString());
         })
     }
 
@@ -20,9 +20,9 @@ class Login extends React.Component {
         const password = document.querySelector("#password").value;
 
         fire.auth().createUserWithEmailAndPassword(email,password).then((u)=> {
-            console.log("Successfully signed up");
+            window.alert("Successfully signed up");
         }).catch((err)=> {
-            console.log("Error: " + err.toString());
+            window.alert("Error: " + err.toString());
         })
     }
 
