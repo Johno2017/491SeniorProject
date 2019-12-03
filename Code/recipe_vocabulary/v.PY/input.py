@@ -1,6 +1,6 @@
 import os, re, string
 
-file_name = "Data/alex.txt"
+file_name = "Data/dane.txt"
 file = open(file_name, "r")
 data = file.readlines()
 
