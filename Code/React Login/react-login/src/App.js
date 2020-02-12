@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import Home from './Home.js';
-import Login from './Login';
+import Home from './pages/Home.js';
+import LoginPage from './pages/LoginPage';
 import fire from './config/Fire';
 
 class App extends Component {
@@ -34,7 +34,7 @@ class App extends Component {
      return (
        
     <body className="App">
-      {this.state.user ? (<Home/>) : (<Login/>)}
+      {this.state.user ? (<Home/>) : (<LoginPage/>)}
     </body>
     );
   }

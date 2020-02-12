@@ -1,5 +1,5 @@
 import React from 'react';
-import fire from './config/Fire';
+import fire from '../config/Fire';
 import './Login.css';
 
 class Login extends React.Component {
@@ -11,7 +11,7 @@ class Login extends React.Component {
         fire.auth().signInWithEmailAndPassword(email,password).then((u)=> {
             window.alert("Successfully logged in");
         }).catch((err)=> {
-            window.alert("Error: " + err.toString());
+            window.alert(err.toString());
         })
     }
 
@@ -28,19 +28,19 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div style = {{textAlign: 'center'}}>
+                <div className = "form-input" style = {{textAlign: 'center'}}>
                 <h1 className = 'formHeading'>Welcome to Look N Cook!</h1>
                 <div>
                     <h3 className = 'formHeading'>Email</h3>
-                    <input id = "email" placeholder = "Enter your Email.." type = "email"/>
+                    <input className='input-box' id = "email" placeholder = "Enter your Email.." type = "email"/>
                 </div>
                 <div>
                 <h3 className = 'formHeading'>Password</h3>
-                    <input id = "password" placeholder = "Enter Password.." type = "password"/>
+                    <input className = 'input-box' id = "password" placeholder = "Enter Password.." type = "password"/>
                 </div>
                 <button className = 'button' style = {{margin: '10px'}} onClick = {this.login}>Login</button>
                 <button className = 'button' style = {{margin: '10px'}} onClick = {this.signUp}>SignUp</button>
-            </div>
+                </div>
         );
     }
 }
