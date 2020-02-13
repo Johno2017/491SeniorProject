@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from '../components/Login';
+import './LoginPage.css';
 
 class LoginPage extends React.Component {
 
@@ -10,7 +11,9 @@ class LoginPage extends React.Component {
     render() {
         return(
         <div className = "background">
-            <Login/>
+            <div className = "login-container">
+                <Login/>
+            </div>
         </div>
         );
     }

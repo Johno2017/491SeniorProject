@@ -28,19 +28,22 @@ class Login extends React.Component {
 
     render() {
         return (
+            <div className = "login">
                 <div className = "form-input" style = {{textAlign: 'center'}}>
-                <h1 className = 'formHeading'>Welcome to Look N Cook!</h1>
-                <div>
-                    <h3 className = 'formHeading'>Email</h3>
-                    <input className='input-box' id = "email" placeholder = "Enter your Email.." type = "email"/>
+                    <h1 className = 'formHeading'>Welcome to Look N Cook!</h1>
+                    <div>
+                        <h3 className = 'formHeading'>Email</h3>
+                        <input className='input-box' id = "email" placeholder = "Enter your Email.." type = "email"/>
+                    </div>
+                    <div>
+                    <h3 className = 'formHeading'>Password</h3>
+                        <input className = 'input-box' id = "password" placeholder = "Enter Password.." type = "password"/>
+                    </div>
+                    <button className = 'button' style = {{margin: '10px'}} onClick = {this.login}>Login</button>
+                    <button className = 'button' style = {{margin: '10px'}} onClick = {this.signUp}>SignUp</button>
                 </div>
-                <div>
-                <h3 className = 'formHeading'>Password</h3>
-                    <input className = 'input-box' id = "password" placeholder = "Enter Password.." type = "password"/>
-                </div>
-                <button className = 'button' style = {{margin: '10px'}} onClick = {this.login}>Login</button>
-                <button className = 'button' style = {{margin: '10px'}} onClick = {this.signUp}>SignUp</button>
-                </div>
+            </div>
+            
         );
     }
 }
