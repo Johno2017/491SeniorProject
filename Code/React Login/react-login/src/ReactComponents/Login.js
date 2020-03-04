@@ -4,12 +4,15 @@ import './Login.css';
 
 class Login extends React.Component {
 
+    constructor(props){
+        super(props);
+    }
+
     login = () => {
         const email = document.querySelector("#email").value;
         const password = document.querySelector("#password").value;
 
         fire.auth().signInWithEmailAndPassword(email,password).then((u)=> {
-            window.alert("Successfully logged in");
         }).catch((err)=> {
             window.alert(err.toString());
         })

@@ -1,7 +1,11 @@
-.welcomeHeader {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 50px;
-    color: darkgreen;
+.background{
+    background: url("../images/LoginPageBackground.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100vw;
 }
 
 .button {
