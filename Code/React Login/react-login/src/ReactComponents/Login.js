@@ -4,9 +4,6 @@ import './Login.css';
 
 class Login extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
 
     login = () => {
         const email = document.querySelector("#email").value;

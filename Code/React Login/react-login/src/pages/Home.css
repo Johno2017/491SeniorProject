@@ -2,19 +2,4 @@
     background: url("../images/LoginPageBackground.jpg");
     background-size: cover;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100vh;
-    width: 100vw;
 }
-
-.button {
-    background-color: green;
-    border: none;
-    color: white;
-    padding: 12px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    }

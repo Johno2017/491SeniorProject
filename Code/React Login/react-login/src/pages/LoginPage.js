@@ -3,9 +3,7 @@ import Login from "../ReactComponents/Login";
 import "./LoginPage.css";
 
 class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (
