@@ -8,14 +8,15 @@
     min-width: 100%;
     background-color: rgb(82, 160, 82);
     border-bottom: .5rem solid rgb(23, 99, 23);
+    box-shadow: 0rem .5rem 1rem .2rem rgb(88, 87, 87);
 }
 
 #logo {
     height: 10rem;
     width: auto;
-    margin-top: 1rem;
-    margin-left: 5rem;
-
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+    margin-left: 2rem;
 }
 .nav-list {
     display: flex;
@@ -27,6 +28,7 @@
 button {
   padding: 1rem 3rem;
   background-color: rgb(23, 99, 23);
+  margin-top: .5rem;
   border: none;
   border-radius: .5rem;
   color: white;
