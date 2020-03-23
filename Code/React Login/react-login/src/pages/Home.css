@@ -1,0 +1,5 @@
+.background{
+    background: url("../images/LoginPageBackground.jpg");
+    background-size: cover;
+    display: flex;
+}
