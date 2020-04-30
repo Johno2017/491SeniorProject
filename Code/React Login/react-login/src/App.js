@@ -32,7 +32,6 @@ class App extends Component {
   
   render() {
      return (
-       
     <body className="App">
       {this.state.user ? (<Home/>) : (<LoginPage/>)}
     </body>
