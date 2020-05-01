@@ -9,12 +9,31 @@ class Home extends React.Component {
     constructor(props)
     {
         super(props);
+        
+        this.state = {
+            viewer: false
+        }
+
+        this.navbarRendering = this.navbarRendering.bind(this);
+    }
+
+    navbarRendering = (selected) => {
+        if(selected === 'Explore'){
+            this.setState({
+                viewer : true
+            });
+        }
+        if(selected === 'Home'){
+            this.setState({
+                viewer : true
+            });
+        }
     }
 
     render() {
         return (
             <div className="background">
-                <Navbar />
+                <Navbar action={this.navbarRendering}/>
                 <Profile user = {this.props.user}/>
             </div>
         );
