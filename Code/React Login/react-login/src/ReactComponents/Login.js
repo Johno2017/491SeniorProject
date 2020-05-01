@@ -36,14 +36,10 @@ class Login extends React.Component {
             window.alert("Error: " + err.toString());
         });
 
-        db.collection("Users").add({
+        db.collection("Users").doc(email).set({
             Name: name,
-            DateJoined: date
-        }).then(function(docRef){
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function(error){
-            console.error("Error adding document: ", error);
+            DateJoined: date,
+            Email: email
         });
 
 
