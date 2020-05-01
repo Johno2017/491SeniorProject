@@ -11,7 +11,8 @@ class Profile extends React.Component{
         this.state = {
             email: this.props.user.email,
             name: null,
-            dateJoined: null
+            dateJoined: null,
+            savedRecipes : []
         };
     }
 
@@ -24,7 +25,7 @@ class Profile extends React.Component{
 
                 var date = doc.data().DateJoined;
                 var dateString = date.toDate().toString()
-                var dateTrimmed = dateString.substring(0,16)
+                var dateTrimmed = dateString.substring(0,16) //Converting the Firestore Timestamp to JS Date String wihout the clock time
 
                 this.setState({
                     name: doc.data().Name,
@@ -52,7 +53,14 @@ class Profile extends React.Component{
                     </div>
                 </div>
                 <div className="my-list">
-                    
+                    <div className="list-header">
+                        <h1 id="recipe-header">My Saved Recipes</h1>
+                    </div>
+                    <div className="list-container">
+                        <ul className="saved-recipe-ul">
+                            <li>Placeholder</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         );
