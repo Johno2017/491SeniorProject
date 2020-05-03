@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../ReactComponents/Navbar.js';
 import Profile from '../ReactComponents/Profile.js';
+import Explore from '../ReactComponents/Explore.js';
 import './Home.css';
 import '../images/Logo.jpg';
 
@@ -14,27 +15,28 @@ class Home extends React.Component {
             viewer: false
         }
 
-        this.navbarRendering = this.navbarRendering.bind(this);
+        this.renderExplore = this.renderExplore.bind(this);
+        this.renderHome = this.renderHome.bind(this);
+        
     }
 
-    navbarRendering = (selected) => {
-        if(selected === 'Explore'){
-            this.setState({
-                viewer : true
-            });
-        }
-        if(selected === 'Home'){
-            this.setState({
-                viewer : true
-            });
-        }
+    renderExplore = () => {
+        this.setState({
+            viewer: true
+        });
+    }
+
+    renderHome = () => {
+        this.setState({
+            viewer: false
+        });
     }
 
     render() {
         return (
             <div className="background">
-                <Navbar action={this.navbarRendering}/>
-                <Profile user = {this.props.user}/>
+                <Navbar renderExplore={this.renderExplore} renderHome={this.renderHome}/>
+                {this.state.viewer ? <Explore/> : <Profile user = {this.props.user}/> }
             </div>
         );
     }
