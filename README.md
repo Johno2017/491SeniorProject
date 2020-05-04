@@ -7,6 +7,6 @@
 [Web Address](https://look-n-cook.firebaseapp.com/)
 
 
-UPDATE (4/27/2020):\
--Added an updated and fixed version of the Architecture document\
+UPDATE (5/4/2020):\
+-Added presentation slides and code in relation to machine learning\
 
