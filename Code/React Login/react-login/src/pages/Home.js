@@ -12,7 +12,8 @@ class Home extends React.Component {
         super(props);
         
         this.state = {
-            viewer: false
+            viewer: false,
+            recipeScreen: false
         }
 
         this.renderExplore = this.renderExplore.bind(this);

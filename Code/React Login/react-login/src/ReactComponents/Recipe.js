@@ -2,20 +2,30 @@ import React from 'react';
 import style from './recipe.module.css';
 
 
-const Recipe = ({id, title, image, timeReady, serving, source}) => {
+class Recipe extends React.Component {
 
-    //const image_path = `https://spoonacular.com/recipeImages/${id}-90x90.jpg`;
+    constructor(props){
+        super(props);
+    }
 
-    return(
+    selectRecipe = () => {
+        console.log(this.props.id, this.props.source);
+        this.props.select(this.props.id, this.props.source);
+    }
+
+    render(){
+        return(
         <div className={style.recipe}>
-            <h1>{title}</h1>
-            <img className={style.image} src = {`https://spoonacular.com/recipeImages/${id}-312x231.jpg`} alt=""  />
-            <p>Ready in: {timeReady} minutes</p>
-            <p>Servings: {serving}</p>
-            <p>Source: {source}</p>
-
+            <h1>{this.props.title}</h1>
+            <img className={style.image} src = {`https://spoonacular.com/recipeImages/${this.props.id}-312x231.jpg`} alt=""  />
+            <p>Ready in: {this.props.timeReady} minutes</p>
+            <p>Servings: {this.props.serving}</p>
+            <p>Source: {this.props.source}</p>
+            <button onClick={this.selectRecipe}>Cook</button>
         </div>
     );
-};
+    }
+    
+}
 
 export default Recipe;
