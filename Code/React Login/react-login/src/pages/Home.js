@@ -37,7 +37,7 @@ class Home extends React.Component {
         return (
             <div className="background">
                 <Navbar renderExplore={this.renderExplore} renderHome={this.renderHome}/>
-                {this.state.viewer ? <Explore/> : <Profile user = {this.props.user}/> }
+                {this.state.viewer ? <Explore user = {this.props.user}/> : <Profile user = {this.props.user}/> }
             </div>
         );
     }

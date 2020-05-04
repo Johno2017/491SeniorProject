@@ -18,7 +18,8 @@ class Explore extends React.Component{
       ingredients: [],
       viewer: false,
       selectedId: null,
-      sourceUrl: null
+      sourceUrl: null,
+      selectName: ""
     };
   }
 
@@ -51,11 +52,12 @@ class Explore extends React.Component{
     this.getRecipes(this.state.query);
   }
 
-  renderViewer = (select, url) => {
+  renderViewer = (select, url, name) => {
     this.setState({
       selectedId : select,
       sourceUrl: url,
-      viewer: true
+      viewer: true,
+      selectName: name
     });
   }
 
@@ -64,7 +66,7 @@ class Explore extends React.Component{
       if(this.state.viewer === true)
       {
         return(
-        <RecipeViewer selectedId={this.state.selectedId} source={this.state.sourceUrl}/>
+        <RecipeViewer user = {this.props.user} selectedId={this.state.selectedId} source={this.state.sourceUrl} name={this.state.selectName}/>
         );
       }
       else

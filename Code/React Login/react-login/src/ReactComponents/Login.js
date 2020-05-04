@@ -39,7 +39,8 @@ class Login extends React.Component {
         db.collection("Users").doc(email).set({
             Name: name,
             DateJoined: date,
-            Email: email
+            Email: email,
+            savedRecipes: []
         });
 
 

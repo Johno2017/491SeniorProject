@@ -27,9 +27,23 @@ class Profile extends React.Component{
                 var dateString = date.toDate().toString()
                 var dateTrimmed = dateString.substring(0,16) //Converting the Firestore Timestamp to JS Date String wihout the clock time
 
+                var tempRecipes = doc.data().savedRecipes;
+
+
+                for(var i = 0; i < tempRecipes.length; i++){
+                    db.collection("Recipes").doc(tempRecipes[i]).get().then(doc2 => {
+
+                        var concat = this.state.savedRecipes.concat(doc2.data().name);
+
+                        this.setState({
+                            savedRecipes : concat
+                        });
+                    })
+                }
+
                 this.setState({
                     name: doc.data().Name,
-                    dateJoined: dateTrimmed
+                    dateJoined: dateTrimmed,
                 });
             });
         }
@@ -58,7 +72,7 @@ class Profile extends React.Component{
                     </div>
                     <div className="list-container">
                         <ul className="saved-recipe-ul">
-                            <li>Placeholder</li>
+                            {this.state.savedRecipes.map(saved => <li>{saved}</li>)}
                         </ul>
                     </div>
                 </div>

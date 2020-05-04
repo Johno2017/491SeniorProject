@@ -10,7 +10,7 @@ class Recipe extends React.Component {
 
     selectRecipe = () => {
         console.log(this.props.id, this.props.source);
-        this.props.select(this.props.id, this.props.source);
+        this.props.select(this.props.id, this.props.source, this.props.title);
     }
 
     render(){
