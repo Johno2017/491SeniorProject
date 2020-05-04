@@ -40,11 +40,14 @@ potage
 quiche
 profiterole
 prosciuto
-romaine lettuce
-romano cheese
+romaine
+lettuce
+romano
+cheese
 rouz
 scallopini
-silver dragees
+silver
+dragees
 stock
 tbone
 steak
@@ -99,7 +102,6 @@ tabasco
 tarragon
 thyme
 turmeric
-worcestershire
 worcestershire
 teaspoon
 tablespoon
