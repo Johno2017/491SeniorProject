@@ -3,6 +3,7 @@ import './App.css';
 import Home from './pages/Home.js';
 import LoginPage from './pages/LoginPage';
 import fire from './config/Fire';
+//import {db} from './config/Fire';
 
 class App extends Component {
 
@@ -10,7 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      user: null,
+      user: null
     }
 
     this.authListener = this.authListener.bind(this);
@@ -32,13 +33,11 @@ class App extends Component {
   
   render() {
      return (
-       
-    <body className="App">
-      {this.state.user ? (<Home/>) : (<LoginPage/>)}
-    </body>
+    <div className="App">
+      {this.state.user ? (<Home user={this.state.user}/>) : (<LoginPage/>)}
+    </div>
     );
   }
- 
 }
 
 export default App;

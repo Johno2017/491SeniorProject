@@ -1,5 +1,9 @@
 .background{
     background: url("../images/LoginPageBackground.jpg");
+    background-color: rgb(23, 99, 23);
     background-size: cover;
     display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
 }
