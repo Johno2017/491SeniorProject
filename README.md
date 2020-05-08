@@ -7,7 +7,7 @@
 [Web Address](https://look-n-cook.firebaseapp.com/)
 
 UPDATE (5/8/2020):\
--Updated Architecture and Design Document\
+-Updated Architecture and Design Document
 
 
 UPDATE (5/4/2020):\
